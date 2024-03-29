@@ -2,6 +2,7 @@ class Employee:
     raise_amount = 1.05  # Class variable
     no_of_employee = 0   # class variable
 
+    # by default, any method of a class is regular method
     # regular methods automatially takes instance as first argument, by convention it is 'self'
     def __init__(self, name, age, email, pay=50000):
         self.name = name
@@ -25,7 +26,7 @@ class Employee:
     # class method as alternative constructor
     @classmethod
     def from_string(cls, emp_str):
-        name, age, email = emp_str.split('-') # split the string by '-' and assign to name, age, email
+        name, age, email = emp_str.split('-') # split the string by '-' and assign to name, age, email ( not to be confused with not putting with self, as in the next line, we are creating instance of the class and returning it)
         return cls(name, age, email) # return the instance of the class, same as Employee(name, age, email)
     
     # static method doesn't take instance or class as first argument, so it doesn't have 'self' or 'cls' as first argument
@@ -36,22 +37,16 @@ class Employee:
             return False
         return True
 
-employee1 = Employee('Md Fakrul Islam', 25, '98fakrulislam@gmail.com')
-employee2 = Employee('Md Ruhul Amin', 20, 'ruhul.amin@gmail.com')
-employee3 = Employee('Md Shakibul Islam', 30, 'shakibul.72@gmail.com')
-
-# print(f'Employee.raise_amount : {Employee.raise_amount}')
-# print(f'employee1.raise_amount : {employee1.raise_amount}')
-# print(f'employee2.raise_amount : {employee2.raise_amount}')
 
 # set the raise amount for all employees using class method
 Employee.set_raise_amount(1.10)
 
 # set the employee detils using the alternative constructor 
 employee4 = Employee.from_string('Md Rakibul Alam-23-rakibul@gmail.com')
+employee4.apply_raise()
 print(employee4.display())
 
 # check if it is workday or not using static method
 import datetime
-my_date = datetime.date(2021, 3, 6)
+my_date = datetime.date(2016, 7, 10)
 print(Employee.is_workday(my_date)) # False

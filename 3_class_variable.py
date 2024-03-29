@@ -33,7 +33,7 @@ print(employee1.raise_amount)
 # see the pay after raise by dictionary
 print(employee1.__dict__)
 
-
+# ------------------------------- Class attribute can also be set for an instance ----------------------------------------
 # set the raise amount for employee1 externally, and see the difference with class variable
 # and how it was possible? because we have used self.raise_amount in apply_raise method instead of Employee.raise_amount 
 # so, it is possible to set raise_amount for each employee separately
