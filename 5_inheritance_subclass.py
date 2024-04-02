@@ -88,20 +88,24 @@ class Manager(Employee):
         for emp in self.employees:
             emp.display("Employee of {}".format(self.name))
 
-manager1 = Manager('Tarek', 30, 'tarek@gmail.com', 70000, [employee1, employee2])
+manager1 = Manager('Tarek', 30, 'tarek@gmail.com', 70000)
 manager1.display("Manager")
 manager1.display_employee()
-
+print('after adding employee')
+manager1.add_employee(employee1)
+manager1.add_employee(employee2)
+manager1.display_employee()
+print('after removing employee')
 manager1.remove_employee(employee1)
 manager1.display_employee()
 
 # Check the instance of the class
-print(isinstance(manager1, Employee)) # True
-print(isinstance(manager1, Developer)) # False
-print(isinstance(manager1, Manager)) # True
+print("isinstance(manager1, Employee) : ", isinstance(manager1, Employee)) # True
+print("isinstance(manager1, Developer) : ", isinstance(manager1, Developer)) # False
+print("isinstance(manager1, Manager) : ", isinstance(manager1, Manager)) # True
 
 # Check the subclass of the class
-print(issubclass(Manager, Employee)) # True
-print(issubclass(Manager, Developer)) # False
-print(issubclass(Developer, Employee)) # True
-print(issubclass(Employee, Developer)) # False
+print("issubclass(Manager, Employee) : ", issubclass(Manager, Employee)) # True
+print("issubclass(Manager, Developer) : ",issubclass(Manager, Developer)) # False
+print("issubclass(Developer, Employee) :", issubclass(Developer, Employee)) # True
+print("issubclass(Employee, Developer) :", issubclass(Employee, Developer)) # False
